@@ -17,10 +17,13 @@ public class Person {
         this.age = age;
     }
 
-    public int getCount() {
+    public static int getCount() {
         return count;
     }
 
+    public static void setCount(int count) {
+        Person.count = count;
+    }
 
     public String getName() {
         return name;

@@ -32,9 +32,13 @@ public class MenuStudent {
         myPersonList.add(new Student("Chi tử", 20,6,8,7));
 
         myPersonList.print();
+
         MenuStudent menuStudent = new MenuStudent();
-        StudentService myStudentList = menuStudent.createStudentList(myPersonList);
-        myStudentList.findMaxAvgScore();
+        StudentService myStudentList1 = menuStudent.createStudentList(myPersonList);
+        myStudentList1.findMaxAvgScore();
         myPersonList.deleteById(5);
+        myPersonList.editById(6, new Student("Tiên", 27,7,7,6));
+        myPersonList.add(new Student("Hưng", 26,10,10,10));
+        myPersonList.print();
     }
 }

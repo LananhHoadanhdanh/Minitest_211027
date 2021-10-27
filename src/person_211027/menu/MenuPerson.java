@@ -1,5 +1,6 @@
 package person_211027.menu;
 
+import person_211027.model.Person;
 import person_211027.model.Student;
 import person_211027.service.PersonService;
 import person_211027.service.StudentService;
@@ -55,9 +56,12 @@ public class MenuPerson {
         int editId = scanner.nextInt();
         int index = personService.findIndexById(editId);
         if (index != -1) {
+            int temp = Person.getCount();
+            Person.setCount(editId - 1);
             if (personService.getPersonList().get(index) instanceof Student){
                 personService.editById(editId, StudentService.createStudent());
             }
+            Person.setCount(temp);
         } else {
             System.out.println("Không có học sinh tương ứng với id này.");
         }

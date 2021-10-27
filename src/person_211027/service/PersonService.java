@@ -21,6 +21,7 @@ public class PersonService implements GeneralService<Person>{
 
     @Override
     public void print() {
+        System.out.println("Danh sách: ");
         printFullLine();
         System.out.printf("|%-8s|%-10s|%-7s|%-13s|%-13s|%-13s|%-13s|%n",
                 "Tên", "ID", "Tuổi", "Điểm toán", "Điểm lý", "Điểm Hóa", "Điểm TB");
