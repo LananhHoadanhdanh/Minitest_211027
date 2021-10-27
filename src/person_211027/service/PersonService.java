@@ -5,7 +5,7 @@ import person_211027.model.Person;
 import java.util.ArrayList;
 
 public class PersonService implements GeneralService<Person>{
-    private ArrayList<Person> personList;
+    ArrayList<Person> personList;
 
     public PersonService() {
         personList = new ArrayList<>();

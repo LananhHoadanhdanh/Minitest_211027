@@ -8,7 +8,10 @@ import person_211027.service.StudentService;
 import java.util.Scanner;
 
 public class MenuPerson {
-    public PersonService personService = new PersonService();
+
+    PersonService personService = new PersonService();
+
+
     public void showMenu() {
         System.out.println("Menu");
         System.out.println("1. Thêm người vào danh sách");
@@ -20,6 +23,7 @@ public class MenuPerson {
         System.out.println("0. Kết thúc chương trình");
         System.out.println("Vui lòng lựa chọn: ");
     }
+
     public void addObject() {
         int option = -1;
         while (option != 0) {
@@ -44,6 +48,7 @@ public class MenuPerson {
     public void printObject() {
         personService.print();
     }
+
     public void deleteObject() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập id của học sinh cần xóa: ");
@@ -56,12 +61,17 @@ public class MenuPerson {
         int editId = scanner.nextInt();
         int index = personService.findIndexById(editId);
         if (index != -1) {
-            Person.setCount(editId - 1);
             if (personService.getPersonList().get(index) instanceof Student){
                 personService.editById(editId, StudentService.createStudent());
             }
         } else {
             System.err.println("Không tim thấy!!!");
         }
+    }
+    public void findObject() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhập tên cần tìm kiếm: ");
+        String nameFind = scanner.nextLine();
+        personService.findByName(nameFind);
     }
 }

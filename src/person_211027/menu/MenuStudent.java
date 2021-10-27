@@ -6,9 +6,7 @@ import person_211027.service.StudentService;
 
 import java.util.ArrayList;
 
-public class MenuStudent {
-
-
+public class MenuStudent extends MenuPerson{
 
     public StudentService createStudentList(PersonService personService) {
         StudentService studentService1 = new StudentService();
@@ -22,6 +20,13 @@ public class MenuStudent {
         studentService1.setStudentList(studentService2);
         return studentService1;
     }
+
+    public void sortIncreaseStudent() {
+        StudentService studentList1 = createStudentList(personService);
+        studentList1.sortByAverageScore();
+        studentList1.print();
+    }
+
 
     public static void main(String[] args) {
         PersonService myPersonList = new PersonService();
