@@ -1,7 +1,7 @@
 package person_211027.model;
 
 public class Person {
-    private int count;
+    private static int count = 0;
     private String name;
     private int personalId;
     private int age;
@@ -21,9 +21,6 @@ public class Person {
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     public String getName() {
         return name;
