@@ -46,6 +46,10 @@ public class StudentService extends PersonService{
                 index = i;
             }
         }
+        System.out.println();
+        System.out.println("Học sinh có điểm cao nhất: ");
+        printFullLine();
         System.out.println(studentList.get(index));
+        printFullLine();
     }
 }
