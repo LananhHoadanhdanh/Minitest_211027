@@ -37,4 +37,15 @@ public class StudentService extends PersonService{
         return new Student(name, age, math, physical, chemistry);
     }
 
+    public void findMaxAvgScore() {
+        double max = studentList.get(0).getAverageScore();
+        int index = 0;
+        for (int i = 0; i < studentList.size(); i++) {
+            if (max < studentList.get(i).getAverageScore()) {
+                max = studentList.get(i).getAverageScore();
+                index = i;
+            }
+        }
+        System.out.println(studentList.get(index));
+    }
 }
