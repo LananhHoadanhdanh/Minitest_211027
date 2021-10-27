@@ -21,6 +21,7 @@ public class PersonService implements GeneralService<Person>{
 
     @Override
     public void print() {
+        System.out.println();
         System.out.println("Danh sách: ");
         printFullLine();
         System.out.printf("|%-8s|%-10s|%-7s|%-13s|%-13s|%-13s|%-13s|%n",
@@ -34,6 +35,7 @@ public class PersonService implements GeneralService<Person>{
 
     @Override
     public void add(Person person) {
+        Person.setCount(Person.getCount()+1);
         personList.add(person);
     }
 
@@ -60,6 +62,7 @@ public class PersonService implements GeneralService<Person>{
     public void editById(int id, Person person) {
         if (findIndexById(id) != -1) {
             personList.set(findIndexById(id), person);
+            person.setPersonalId(id);
         } else {
             System.err.println("Không tìm thấy!.");
         }

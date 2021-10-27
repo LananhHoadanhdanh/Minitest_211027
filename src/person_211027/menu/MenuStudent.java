@@ -36,7 +36,6 @@ public class MenuStudent {
         MenuStudent menuStudent = new MenuStudent();
         StudentService myStudentList1 = menuStudent.createStudentList(myPersonList);
         myStudentList1.findMaxAvgScore();
-        myPersonList.deleteById(5);
         myPersonList.editById(6, new Student("Tiên", 27,7,7,6));
         myPersonList.add(new Student("Hưng", 26,10,10,10));
         myPersonList.print();

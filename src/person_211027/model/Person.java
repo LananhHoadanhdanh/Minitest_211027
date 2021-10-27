@@ -7,11 +7,9 @@ public class Person {
     private int age;
 
     public Person() {
-        count++;
     }
 
     public Person(String name, int age) {
-        count++;
         personalId = count;
         this.name = name;
         this.age = age;
