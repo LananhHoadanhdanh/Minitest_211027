@@ -39,5 +39,8 @@ public class MenuStudent {
         myPersonList.editById(6, new Student("Tiên", 27,7,7,6));
         myPersonList.add(new Student("Hưng", 26,10,10,10));
         myPersonList.print();
+        myPersonList.deleteById(8);
+        myPersonList.add(new Student("Hòa", 26,9,9,9));
+        myPersonList.print();
     }
 }
