@@ -45,7 +45,8 @@ public class Student extends Person implements Comparable<Student>{
 
     @Override
     public String toString() {
-        return String.format("|%-8s|%-10d|%-7d|%-13f|%-13f|%-13f|%-13f", getName(), getPersonalId(), getAge(), mathScore, physicalScore, chemistryScore,getAverageScore());
+        return String.format("|%-8s|%-10d|%-7d|%-13f|%-13f|%-13f|%-13f|",
+                getName(), getPersonalId(), getAge(), mathScore, physicalScore, chemistryScore,getAverageScore());
     }
 
     @Override
