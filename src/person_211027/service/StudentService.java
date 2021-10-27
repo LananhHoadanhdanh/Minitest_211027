@@ -3,9 +3,11 @@ package person_211027.service;
 import person_211027.model.Student;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class StudentService extends PersonService{
+
     private ArrayList<Student> studentList;
 
     public StudentService() {
@@ -19,9 +21,10 @@ public class StudentService extends PersonService{
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
-    public void sortByAverageScore() {
 
+    public void sortByAverageScore() {
     }
+
     public static Student createStudent(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tên: ");
@@ -50,6 +53,19 @@ public class StudentService extends PersonService{
         System.out.println("Học sinh có điểm cao nhất: ");
         printFullLine();
         System.out.println(studentList.get(index));
+        printFullLine();
+    }
+
+    public void print() {
+        System.out.println();
+        System.out.println("Danh sách học sinh: ");
+        printFullLine();
+        System.out.printf("|%-8s|%-10s|%-7s|%-13s|%-13s|%-13s|%-13s|%n",
+                "Tên", "ID", "Tuổi", "Điểm toán", "Điểm lý", "Điểm Hóa", "Điểm TB");
+        printFullLine();
+        for (int i = 0; i < studentList.size(); i++) {
+            System.out.println(studentList.get(i));
+        }
         printFullLine();
     }
 }

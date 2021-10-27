@@ -42,5 +42,7 @@ public class MenuStudent {
         myPersonList.deleteById(8);
         myPersonList.add(new Student("Hòa", 26,9,9,9));
         myPersonList.print();
+        myStudentList1.sortByAverageScore();
+        myStudentList1.print();
     }
 }
