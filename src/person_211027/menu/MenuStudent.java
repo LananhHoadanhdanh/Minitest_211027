@@ -60,7 +60,7 @@ public class MenuStudent extends MenuPerson{
         myPersonList.add(new Student("Anh", 25, 3, 10, 5));
         myPersonList.add(new Student("Chi tử", 20, 6, 8, 7));
 
-        FileReader fileReader = new FileReader("studentList.csv");
+        FileReader fileReader = new FileReader("src/person_211027/menu/studentList.csv");
         ArrayList<Person> studentList1 = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String content = bufferedReader.readLine();
@@ -68,7 +68,14 @@ public class MenuStudent extends MenuPerson{
             String[] array = content.split(",");
             String name = array[0];
             int age = Integer.parseInt(array[2]);
-            double physicalScore = Double.parseDouble(array[3]);
+            double mathScore = Double.parseDouble(array[3]);
+            double physicalScore = Double.parseDouble(array[4]);
+            double chemistry = Double.parseDouble(array[5]);
+            studentList1.add(new Student(name, age, mathScore, physicalScore, chemistry));
+        }
+
+        for (int i = 0; i < studentList1.size(); i++) {
+            System.out.println(studentList1.get(i));
         }
     }
 }

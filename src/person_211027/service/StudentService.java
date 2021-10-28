@@ -15,6 +15,10 @@ public class StudentService extends PersonService{
         studentList = new ArrayList<>();
     }
 
+    public StudentService(ArrayList<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     public ArrayList<Student> getStudentList() {
         return studentList;
     }
