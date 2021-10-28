@@ -4,6 +4,7 @@ import person_211027.model.Student;
 import person_211027.service.PersonService;
 import person_211027.service.StudentService;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class MenuStudent extends MenuPerson{
@@ -27,30 +28,45 @@ public class MenuStudent extends MenuPerson{
         studentList1.print();
     }
 
+    public void writeStudentList(PersonService personService, String nameFile) throws IOException {
+        FileWriter fileWriter = new FileWriter(nameFile);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        String str = "Name,ID,Age,Math Score,Physical Score,Chemistry Score,Average Score";
+        for (int i = 0; i < personService.getPersonList().size(); i++) {
+            Student student = (Student) personService.getPersonList().get(i);
+            str += "\n";
+            str += student.getName() + ",";
+            str += student.getPersonalId() + ",";
+            str += student.getAge() + ",";
+            str += student.getMathScore() + ",";
+            str += student.getPhysicalScore() + ",";
+            str += student.getChemistryScore() + ",";
+            str += student.getAverageScore();
+        }
+        bufferedWriter.write(str);
+        bufferedWriter.close();
+    }
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         PersonService myPersonList = new PersonService();
-        myPersonList.add(new Student("Hoa", 20,6,4,5));
-        myPersonList.add(new Student("Lan", 21,7,4,5));
-        myPersonList.add(new Student("Hương", 29,8,6,1));
-        myPersonList.add(new Student("Thủy", 28,10,7,9));
-        myPersonList.add(new Student("Hường", 27,5,8,8));
-        myPersonList.add(new Student("Lan", 22,4,9,10));
-        myPersonList.add(new Student("Anh", 25,3,10,5));
-        myPersonList.add(new Student("Chi tử", 20,6,8,7));
+        myPersonList.add(new Student("Hoa", 20, 6, 4, 5));
+        myPersonList.add(new Student("Lan", 21, 7, 4, 5));
+        myPersonList.add(new Student("Hương", 29, 8, 6, 1));
+        myPersonList.add(new Student("Thủy", 28, 10, 7, 9));
+        myPersonList.add(new Student("Hường", 27, 5, 8, 8));
+        myPersonList.add(new Student("Lan", 22, 4, 9, 10));
+        myPersonList.add(new Student("Anh", 25, 3, 10, 5));
+        myPersonList.add(new Student("Chi tử", 20, 6, 8, 7));
 
-        myPersonList.print();
+        FileReader fileReader = new FileReader("studentList.csv");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String content = bufferedReader.readLine();
+        while ((content = bufferedReader.readLine()) != null) {
+            String[] array = content.split(",");
+            String name = array[0];
+            int age = Integer.parseInt(array[2]);
 
-        MenuStudent menuStudent = new MenuStudent();
-        StudentService myStudentList1 = menuStudent.createStudentList(myPersonList);
-        myStudentList1.findMaxAvgScore();
-        myPersonList.editById(6, new Student("Tiên", 27,7,7,6));
-        myPersonList.add(new Student("Hưng", 26,10,10,10));
-        myPersonList.print();
-        myPersonList.deleteById(8);
-        myPersonList.add(new Student("Hòa", 26,9,9,9));
-        myPersonList.print();
-        myStudentList1.sortByAverageScore();
-        myStudentList1.print();
+        }
     }
 }
