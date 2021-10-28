@@ -1,5 +1,6 @@
 package person_211027.menu;
 
+import person_211027.model.Person;
 import person_211027.model.Student;
 import person_211027.service.PersonService;
 import person_211027.service.StudentService;
@@ -60,13 +61,14 @@ public class MenuStudent extends MenuPerson{
         myPersonList.add(new Student("Chi tử", 20, 6, 8, 7));
 
         FileReader fileReader = new FileReader("studentList.csv");
+        ArrayList<Person> studentList1 = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String content = bufferedReader.readLine();
         while ((content = bufferedReader.readLine()) != null) {
             String[] array = content.split(",");
             String name = array[0];
             int age = Integer.parseInt(array[2]);
-
+            double physicalScore = Double.parseDouble(array[3]);
         }
     }
 }
